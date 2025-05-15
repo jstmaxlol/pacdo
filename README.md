@@ -30,7 +30,7 @@ pacdo base syntax
 [ possible verbals/commands ]
 pacdo h/H/help                        = shows usage screen
 pacdo s/S/install/get/sync package    = installs a package (if found)
-pacdo fsu/yolo                        = runs a full-system-upgrade (same as pacman -Syu)
+pacdo full/yolo                        = runs a full-system-upgrade (same as pacman -Syu)
                                         ('pacdo yolo' also parses --noconfirm)
 pacdo r/R/remove package              = removes a package
 pacdo rq/Rq package                   = removes a package with all their dependancies
