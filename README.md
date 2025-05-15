@@ -8,22 +8,21 @@
 a simple cli utility to shorten pacman syntax.
 no dependancies other than pacman, sudo and (optionally) figlet
 
-idk i was bored and started to hate writing 'sudo pacman -S package' for every package i needed while setting up a new arch install
-so yeah.
+idk i was bored and started to hate writing 'sudo pacman -S package'
+for every package i needed while setting up a new arch install so yeah.
                  _        _ _           _
   ___ ___  _ __ | |_ _ __(_) |__  _   _| |_ ___
  / __/ _ \| '_ \| __| '__| | '_ \| | | | __/ _ \
 | (_| (_) | | | | |_| |  | | |_) | |_| | ||  __/
  \___\___/|_| |_|\__|_|  |_|_.__/ \__,_|\__\___|
-if you want to contribute just do a lil PR and i'll probably accept it because your code is better than mine, probably
-
+if you want to contribute just do a lil PR and i'll probably accept it
+because your code is better than mine, probably
 
  _   _ ___  __ _  __ _  ___   ___  ___ _ __ ___  ___ _ __
-| | | / __|/ _` |/ _` |/ _ \ / __|/ __| '__/ _ \/ _ \ '_ \
-| |_| \__ \ (_| | (_| |  __/ \__ \ (__| | |  __/  __/ | | |
- \__,_|___/\__,_|\__, |\___| |___/\___|_|  \___|\___|_| |_|
+| | | / __|/ _` |/ _` |/ _ \ / __|/ __| '__/ _ \/ _ \ '_ \   since it could be useful
+| |_| \__ \ (_| | (_| |  __/ \__ \ (__| | |  __/  __/ | | |  to read the usage screen before actually
+ \__,_|___/\__,_|\__, |\___| |___/\___|_|  \___|\___|_| |_|  installing pacdo, here's it copypasted
                  |___/
-since it could be useful to read the usage screen before actually installing pacdo, here's it copypasted;
 [ help/usage screen ]
 pacdo base syntax
 'pacdo verbal/command package'
