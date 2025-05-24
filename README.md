@@ -20,8 +20,8 @@ because your code is better than mine, probably
 
  _   _ ___  __ _  __ _  ___   ___  ___ _ __ ___  ___ _ __
 | | | / __|/ _` |/ _` |/ _ \ / __|/ __| '__/ _ \/ _ \ '_ \   since it could be useful
-| |_| \__ \ (_| | (_| |  __/ \__ \ (__| | |  __/  __/ | | |  to read the usage screen before actually
- \__,_|___/\__,_|\__, |\___| |___/\___|_|  \___|\___|_| |_|  installing pacdo, here's it copypasted
+| |_| \__ \ (_| | (_| |  __/ \__ \ (__| | |  __/  __/ | | |  to read the usage screen
+ \__,_|___/\__,_|\__, |\___| |___/\___|_|  \___|\___|_| |_|  before installing pacdo
                  |___/
 [ help/usage screen ]
 pacdo base syntax
