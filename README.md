@@ -6,7 +6,7 @@
 | .__/ \__,_|\___\__,_|\___/
 |_|
 a simple cli utility to shorten pacman syntax.
-no dependancies other than pacman, sudo and (optionally) figlet
+no dependencies other than pacman, sudo and (optionally) figlet
 
 idk i was bored and started to hate writing 'sudo pacman -S package'
 for every package i needed while setting up a new arch install so yeah.
