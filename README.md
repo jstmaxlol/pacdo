@@ -10,6 +10,19 @@ no dependancies other than pacman, sudo and (optionally) figlet
 
 idk i was bored and started to hate writing 'sudo pacman -S package'
 for every package i needed while setting up a new arch install so yeah.
+
+ _           _        _ _
+(_)_ __  ___| |_ __ _| | |
+| | '_ \/ __| __/ _` | | |
+| | | | \__ \ || (_| | | |
+|_|_| |_|___/\__\__,_|_|_|
+the easiest way to install pacdo is through the AUR package:
+* yay    : yay -S pacdo
+* paru   : paru -S pacdo
+* trizen : trizen -S pacdo
+* pamac  : pamac build pacdo
+* aurman : aurman -S pacdo
+
                  _        _ _           _
   ___ ___  _ __ | |_ _ __(_) |__  _   _| |_ ___
  / __/ _ \| '_ \| __| '__| | '_ \| | | | __/ _ \
