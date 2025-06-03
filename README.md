@@ -23,6 +23,9 @@ the easiest way to install pacdo is through the AUR package:
 * pamac  : pamac build pacdo
 * aurman : aurman -S pacdo
 
+otherwise, stick to manual compiling :)
+just 'g++ -o pacdo pacdo.cpp' after 'git clone'ing the repo 
+
                  _        _ _           _
   ___ ___  _ __ | |_ _ __(_) |__  _   _| |_ ___
  / __/ _ \| '_ \| __| '__| | '_ \| | | | __/ _ \
@@ -37,7 +40,7 @@ because your code is better than mine, probably
  \__,_|___/\__,_|\__, |\___| |___/\___|_|  \___|\___|_| |_|  before installing pacdo
                  |___/
 [ help/usage screen ]
-pacdo base syntax
+pacdo base syntax:
 'pacdo verbal/command package'
 
 [ possible verbals/commands ]
@@ -51,7 +54,10 @@ pacdo q/Q/query                       = queries pacman database (same as pacman 
 pacdo ph                              = shows pacman's usage screen
 pacdo contribute/repo                 = opens pacdo's github repo
 pacdo u/U/upgrade package             = upgrade a package (if found)
-    
+pacdo RemoveDatabaseLock/dbr          = removes db.lck (/var/lib/pacman/db.lck)
+                                        warning! only use 'pacdo dbr' if you are 100% sure
+                                        there's NO pacman instances running. you have been warned.
+
 developer note: if anyone is interested in this shortened syntax
-just let me know and i'll make version for other utils
+just hit me up somewhere and i'll make version for other utils¶
 ```
