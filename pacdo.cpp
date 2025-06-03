@@ -1,8 +1,9 @@
-///////
-//////    pacdo o(≧口≦)o
-/////     or more literally: shortened pacman syntax!
-////      this can be useful (i swear)
-///       license: Unlicense (pasted at the bottom of this file)
+////////
+///////    pacdo o(≧口≦)o
+//////     or more literally: shortened pacman syntax!
+/////      this can be useful (i swear)
+////       license: Unlicense (pasted at the bottom of this file)
+///        version: 2025.06.0401
 //
 
 #include <iostream>
@@ -44,6 +45,11 @@ int main(int argc, char** argv) {
             else return -1;
         } else if (verbal == "ph") {
             int pacmanCode = system("pacman -h");
+            if (pacmanCode != 1)
+                return 0;
+            else return -1;
+        } else if (verbal == "RemoveDatabaseLock" || verbal == "dbr") {
+            int pacmanCode = system("sudo rm /var/lib/pacman/db.lck");
             if (pacmanCode != 1)
                 return 0;
             else return -1;
@@ -98,7 +104,7 @@ void help() {
         std::cout << "pacdo\n";
     }
     std::cout
-    << "version 2025.05.1518\n\n"
+    << "version 2025.06.0401\n\n"
 
     << "[ help/usage screen ]\n"
     << "pacdo base syntax:\n"
@@ -108,16 +114,19 @@ void help() {
     << "pacdo h/H/help                        = shows usage screen\n"
     << "pacdo s/S/install/get/sync package    = installs a package (if found)\n"
     << "pacdo syu/Syu/yolo                    = runs a full-system-upgrade (same as pacman -Syu)\n"
-    << "                                        ('pacdo yolo' also parses --noconfirm)\n"
+    << "                                        (\'pacdo yolo\' also parses --noconfirm)\n"
     << "pacdo r/R/remove package              = removes a package\n"
     << "pacdo rq/Rq package                   = removes a package with all their dependancies\n"
     << "pacdo q/Q/query                       = queries pacman database (same as pacman -Q)\n"
-    << "pacdo ph                              = shows pacman's usage screen\n"
-    << "pacdo contribute/repo                 = opens pacdo's github repo\n"
-    << "pacdo u/U/upgrade package             = upgrade a package (if found)\n\n"
+    << "pacdo ph                              = shows pacman\'s usage screen\n"
+    << "pacdo contribute/repo                 = opens pacdo\'s github repo\n"
+    << "pacdo u/U/upgrade package             = upgrade a package (if found)\n"
+    << "pacdo RemoveDatabaseLock/dbr          = removes db.lck (/var/lib/pacman/db.lck)\n"
+    << "                                        warning! only use \'pacdo dbr\' if you are 100% sure\n"
+    << "                                        there's NO pacman instances running. you have been warned.\n\n"
     
     << "developer note: if anyone is interested in this shortened syntax\n"
-    << "just let me know and i'll make version for other utils"
+    << "just hit me up somewhere and i'll make version for other utils"
     ;
 }
 
