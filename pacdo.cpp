@@ -3,7 +3,7 @@
 //////     or more literally: shortened pacman syntax!
 /////      this can be useful (i swear)
 ////       license: Unlicense (pasted at the bottom of this file)
-///        version: 2025.06.0401
+///        version: 2025.09.0503
 //
 
 #include <iostream>
@@ -28,7 +28,12 @@ int main(int argc, char** argv) {
         if (verbal == "h" || verbal == "H" || verbal == "help") {
             help();   // show usage screen
             return 0; // 0 to signal no errors
-        } else if (verbal == "syu" || verbal == "Syu") {
+        } else if (verbal == "sc" || verbal == "Sc") {
+			int pacmanCode = system("sudo pacman -Sc");
+			if (pacmanCode != 1)
+				return 0;
+			else return -1;
+		} else if (verbal == "syu" || verbal == "Syu") {
             int pacmanCode = system("sudo pacman -Syu");
             if (pacmanCode != 1)
                 return 0;
@@ -54,7 +59,7 @@ int main(int argc, char** argv) {
                 return 0;
             else return -1;
         } else if (verbal == "contribute" || verbal == "repo") {
-            std::cout << "https://github.com/jstmaxlol/pacdo/"; // todo: replace with libcurl call for default browser and actually open the link itself
+            std::cout << "https://github.com/jstmaxlol/pacdo/"; // todo: replace with libcurl call for default browser and actually open the link itself - or something idk
         }
     } else if (argc == 3) { // likely 'pacdo S', 'pacdo R', 'pacdo U' or 'pacdo Q'
                             // because of the third argument in argv, which is user's second argument, most likely a package name
@@ -93,6 +98,8 @@ int main(int argc, char** argv) {
             else return -1;
         }
     }
+
+	return 0; // i missed this in the first 2 versions lmfao
 }
 
 void help() {
@@ -113,14 +120,17 @@ void help() {
     << "[ possible verbals/commands ]\n"
     << "pacdo h/H/help                        = shows usage screen\n"
     << "pacdo s/S/install/get/sync package    = installs a package (if found)\n"
+	<< "pacdo sc/Sc                           = clears package cache\n"
     << "pacdo syu/Syu/yolo                    = runs a full-system-upgrade (same as pacman -Syu)\n"
     << "                                        (\'pacdo yolo\' also parses --noconfirm)\n"
-    << "pacdo r/R/remove package              = removes a package\n"
+	<< "pacdo r/R/remove package              = removes a package\n"
     << "pacdo rq/Rq package                   = removes a package with all their dependancies\n"
     << "pacdo q/Q/query                       = queries pacman database (same as pacman -Q)\n"
     << "pacdo ph                              = shows pacman\'s usage screen\n"
     << "pacdo contribute/repo                 = opens pacdo\'s github repo\n"
     << "pacdo u/U/upgrade package             = upgrade a package (if found)\n"
+	<< "										also used to install a package from a file\n"
+	<< "										(i.e. after using debtap)\n"
     << "pacdo RemoveDatabaseLock/dbr          = removes db.lck (/var/lib/pacman/db.lck)\n"
     << "                                        warning! only use \'pacdo dbr\' if you are 100% sure\n"
     << "                                        there's NO pacman instances running. you have been warned.\n\n"
