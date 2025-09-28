@@ -39,25 +39,7 @@ because your code is better than mine, probably
 | |_| \__ \ (_| | (_| |  __/ \__ \ (__| | |  __/  __/ | | |  to read the usage screen
  \__,_|___/\__,_|\__, |\___| |___/\___|_|  \___|\___|_| |_|  before installing pacdo
                  |___/
-[ help/usage screen ]
-pacdo base syntax:
-'pacdo verbal/command package'
-
-[ possible verbals/commands ]
-pacdo h/H/help                        = shows usage screen
-pacdo s/S/install/get/sync package    = installs a package (if found)
-pacdo syu/Syu/yolo                    = runs a full-system-upgrade (same as pacman -Syu)
-                                        ('pacdo yolo' also parses --noconfirm)
-pacdo r/R/remove package              = removes a package
-pacdo rq/Rq package                   = removes a package with all their dependancies
-pacdo q/Q/query                       = queries pacman database (same as pacman -Q)
-pacdo ph                              = shows pacman's usage screen
-pacdo contribute/repo                 = opens pacdo's github repo
-pacdo u/U/upgrade package             = upgrade a package (if found)
-pacdo RemoveDatabaseLock/dbr          = removes db.lck (/var/lib/pacman/db.lck)
-                                        warning! only use 'pacdo dbr' if you are 100% sure
-                                        there's NO pacman instances running. you have been warned.
-
-developer note: if anyone is interested in this shortened syntax
-just hit me up somewhere and i'll make version for other utils¶
+// removed, since i update it every update it's not worth it
+// having to copypasta it here manually removing every '<<'
+// and '\n' and all of that, so.. yeah just get pacdo <3
 ```
