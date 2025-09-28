@@ -169,7 +169,7 @@ void help() {
         std::cout << "pacdo\n";
     }
     std::cout
-    << "version 2025.09.0504\n\n"
+    << "version 2025.09.2904\n\n"
 
     << "[ help/usage screen ]\n"
     << "pacdo base syntax:\n"
