@@ -3,7 +3,7 @@
 //////     or more literally: shortened pacman syntax!
 /////      this can be useful (i swear)
 ////       license: Unlicense (pasted at the bottom of this file)
-///        version: 2025.09.2904
+///        version: 2025.11.1305
 //
 
 #include <print>
@@ -30,7 +30,10 @@ int main(int argc, char** argv)
         std::string verbal = argv[1]; // store verbal/command argument
         
         // case h
-        if (verbal == "h" || verbal == "H" || verbal == "help") {
+        if (verbal == "h" || verbal == "H" ||
+            verbal == "help" || verbal == "v" ||
+            verbal == "ver" || verbal == "version")
+        {
             help();   // show usage screen..
             return 0; // ..and quit
         }
@@ -161,7 +164,7 @@ void help() {
     }
     // TODO: make this whole std::cout block std::print
     std::cout
-    << "version 2025.09.2904\n\n"
+    << "version 2025.11.1305\n\n"
 
     << "[ help/usage screen ]\n"
     << "pacdo base syntax:\n"
@@ -170,21 +173,21 @@ void help() {
     << "[ possible verbals/commands ]\n"
     << "pacdo h/H/help                        = shows usage screen\n"
     << "pacdo s/S/install/get/sync package    = installs a package (if found)\n"
-        << "pacdo sc/Sc                           = clears package cache\n"
-        << "pacdo scc/Scc/sccyes                  = clears *all* package cache\n"
-        << "                                        (\'pacdo sccyes\' uses \'yes\' to automate the deletion)\n"
+    << "pacdo sc/Sc                           = clears package cache\n"
+    << "pacdo scc/Scc/sccyes                  = clears *all* package cache\n"
+    << "                                        (\'pacdo sccyes\' uses \'yes\' to automate the deletion)\n"
     << "pacdo syu/Syu/yolo                    = runs a full-system-upgrade (same as pacman -Syu)\n"
     << "                                        (\'pacdo yolo\' also parses --noconfirm)\n"
-        << "pacdo sy/Sy package                   = installs a package and updates the package database\n"
-        << "pacdo r/R/remove package              = removes a package\n"
+    << "pacdo sy/Sy package                   = installs a package and updates the package database\n"
+    << "pacdo r/R/remove package              = removes a package\n"
     << "pacdo rq/Rq package                   = removes a package with all their dependencies\n"
-        << "pacdo rns/Rns package                 = removes a package, all their unnecessary dependencies and their config files\n"
+    << "pacdo rns/Rns package                 = removes a package, all their unnecessary dependencies and their config files\n"
     << "pacdo q/Q/query                       = queries pacman database (same as pacman -Q)\n"
     << "pacdo ph                              = shows pacman\'s usage screen\n"
     << "pacdo contribute/repo                 = opens pacdo\'s github repo\n"
     << "pacdo u/U/upgrade package             = upgrade a package (if found)\n"
-        << "                                        also used to install a package from a file\n"
-        << "                                        (i.e. after using debtap)\n"
+    << "                                        also used to install a package from a file\n"
+    << "                                        (i.e. after using debtap)\n"
     << "pacdo RemoveDatabaseLock/dbr          = removes db.lck (/var/lib/pacman/db.lck)\n"
     << "                                        warning! only use \'pacdo dbr\' if you are 100% sure\n"
     << "                                        there's NO pacman instances running. you have been warned.\n"
