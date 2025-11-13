@@ -6,92 +6,83 @@
 ///        version: 2025.09.2904
 //
 
+#include <print>
 #include <iostream>
 #include <cstdlib>
 
 // function prototypes
 void help();
 
-int main(int argc, char** argv) {
-
-        if (argc > 3) {
-        std::cout << ":: error/too_many_arguments";
-        return -1;
-    } else if (argc < 2){
-        std::cout << ":: error/not_enough_arguments";
-        return -1;
+int main(int argc, char** argv)
+{
+    if (argc > 3) {
+        std::print("=> error/too_many_args: {}", argc-1);
+        return 1;
+    } else if (argc < 2) {
+        std::print("=> error/not_enough_args: {}", argc-1);
+        return 1;
     }
 
 
     if (argc == 2) { // if there are 2 arguments (argv[0] and argv[1])
                      // it means that the user only set the verbal argument
-
+        
         std::string verbal = argv[1]; // store verbal/command argument
-
-                // case h
-                if (verbal == "h" || verbal == "H" || verbal == "help") {
-            help();   // show usage screen
-            return 0; // 0 to signal no errors
+        
+        // case h
+        if (verbal == "h" || verbal == "H" || verbal == "help") {
+            help();   // show usage screen..
+            return 0; // ..and quit
         }
-                // case sc
-                else if (verbal == "sc" || verbal == "Sc") {
-                        int pacmanCode = system("sudo pacman -Sc");
-                        if (pacmanCode != 1)
-                                return 0;
-                        else return -1;
-                }
-                // case scc
-                else if (verbal == "scc" || verbal == "Scc") {
-                        int pacmanCode = system("sudo pacman -Scc");
-                        if (pacmanCode != 1)
-                                return 0;
-                        else return -1;
-                }
-                // case scc + pipe yes
-                else if (verbal == "sccyes") {
-                        int pacmanCode = system("yes | sudo pacman -Scc");
-                        if (pacmanCode != 1)
-                                return 0;
-                        else return -1;
-                }
-                // case syu
-                else if (verbal == "syu" || verbal == "Syu") {
-            int pacmanCode = system("sudo pacman -Syu");
-            if (pacmanCode != 1)
-                return 0;
+        // case sc
+        else if (verbal == "sc" || verbal == "Sc") {
+            if ((system("sudo pacman -Sc")) == 0) return 0;
+            else return 1;
+        }
+        // case scc
+        else if (verbal == "scc" || verbal == "Scc") {
+            if ((system("sudo pacman -Scc")) == 0) return 0;
+            else return 1;
+        }
+        // case scc + pipe yes
+        else if (verbal == "sccyes") {
+            if ((system("yes | sudo pacman -Scc")) == 0) return 0;
+            else return 1;
+        }
+        // case syu
+        else if (verbal == "syu" || verbal == "Syu") {
+            if ((system("sudo pacman -Syu")) == 0) return 0;
+            else return 1;
+        }
+        // case syu + noconfirm
+        else if (verbal == "yolo") {
+            if ((system("sudo pacman -Syu --noconfirm")) == 0) return 0;
             else return -1;
         }
-                // case syu + noconfirm
-                else if (verbal == "yolo") {
-            int pacmanCode = system("sudo pacman -Syu --noconfirm");
-            if (pacmanCode != 1)
-                return 0;
-            else return -1;
-        }
-                // case q
-                else if (verbal == "q" || verbal == "Q" || verbal == "query") {
+        // case q
+        else if (verbal == "q" || verbal == "Q" || verbal == "query") {
             int pacmanCode = system("pacman -Q");
             if (pacmanCode != 1)
                 return 0;
             else return -1;
         }
-                // case ph
-                else if (verbal == "ph") {
+        // case ph
+        else if (verbal == "ph") {
             int pacmanCode = system("pacman -h");
             if (pacmanCode != 1)
                 return 0;
             else return -1;
         }
-                // case remove pacman database lock file
-                else if (verbal == "RemoveDatabaseLock" || verbal == "dbr") {
+        // case remove pacman database lock file
+        else if (verbal == "RemoveDatabaseLock" || verbal == "dbr") {
             int pacmanCode = system("sudo rm /var/lib/pacman/db.lck");
             if (pacmanCode != 1)
                 return 0;
             else return -1;
         }
-                // case show repo / contribute code
-                else if (verbal == "contribute" || verbal == "repo") {
-            std::cout << "https://github.com/jstmaxlol/pacdo/"; // todo: replace with libcurl call for default browser and actually open the link itself - or something idk
+        // case show repo / contribute code
+        else if (verbal == "contribute" || verbal == "repo") {
+            std::print("https://github.com/jstmaxlol/pacdo/\n");
         }
     } else if (argc == 3) { // likely 'pacdo S', 'pacdo R', 'pacdo U', 'pacdo Q' or 'pacdo Sy'
                             // because of the third argument in argv, which is user's second argument, most likely a package name
@@ -99,7 +90,7 @@ int main(int argc, char** argv) {
         std::string verbal  = argv[1]; // store command argument
         std::string package = argv[2]; // store package name argument
 
-                // case s
+        // case s
         if (verbal == "s" || verbal == "S" || verbal == "install" || verbal == "get" || verbal == "sync") {
             std::string pacmanCommand = "sudo pacman -S " + package;
             int pacmanCode = system(pacmanCommand.c_str());
@@ -107,48 +98,48 @@ int main(int argc, char** argv) {
                 return 0;
             else return -1;
         }
-                // case sy
-                else if(verbal == "sy" || verbal == "Sy") {
-                        std::string pacmanCommand = "sudo pacman -Sy " + package;
-                        int pacmanCode = system(pacmanCommand.c_str());
-                        if (pacmanCode != 1)
-                                return 0;
-                        else return -1;
-                }
-                // case r
-                else if (verbal == "r" || verbal == "R" || verbal == "remove") {
+        // case sy
+        else if(verbal == "sy" || verbal == "Sy") {
+                std::string pacmanCommand = "sudo pacman -Sy " + package;
+                int pacmanCode = system(pacmanCommand.c_str());
+                if (pacmanCode != 1)
+                    return 0;
+                else return -1;
+        }
+        // case r
+        else if (verbal == "r" || verbal == "R" || verbal == "remove") {
             std::string pacmanCommand = "sudo pacman -R " + package;
             int pacmanCode = system(pacmanCommand.c_str());
             if (pacmanCode != 1)
                 return 0;
             else return -1;
         }
-                // case rq
-                else if (verbal == "rq" || verbal == "Rq") {
+        // case rq
+        else if (verbal == "rq" || verbal == "Rq") {
             std::string pacmanCommand = "sudo pacman -Rq " + package;
             int pacmanCode = system(pacmanCommand.c_str());
             if (pacmanCode != 1)
                 return 0;
             else return -1;
         }
-                // case rns
-                else if (verbal == "rns" || verbal == "Rns") {
-                        std::string pacmanCommand = "sudo pacman -Rns " + package;
-                        int pacmanCode = system(pacmanCommand.c_str());
-                        if (pacmanCode != 1)
-                                return 0;
-                        else return -1;
-                }
-                // case u
-                else if (verbal == "u" || verbal == "U" || verbal == "upgrade") {
+        // case rns
+        else if (verbal == "rns" || verbal == "Rns") {
+            std::string pacmanCommand = "sudo pacman -Rns " + package;
+            int pacmanCode = system(pacmanCommand.c_str());
+            if (pacmanCode != 1)
+                return 0;
+            else return -1;
+        }
+        // case u
+        else if (verbal == "u" || verbal == "U" || verbal == "upgrade") {
             std::string pacmanCommand = "sudo pacman -U " + package;
             int pacmanCode = system(pacmanCommand.c_str());
             if (pacmanCode != 1)
                 return 0;
             else return -1;
         }
-                // case q
-                else if (verbal == "q" || verbal == "Q" || verbal == "query") {
+        // case q
+        else if (verbal == "q" || verbal == "Q" || verbal == "query") {
             std::string pacmanCommand = "pacman -Q " + package;
             int pacmanCode = system(pacmanCommand.c_str());
             if (pacmanCode != 1)
@@ -164,10 +155,11 @@ void help() {
     int isFigletInstalled = system("pacman -Q figlet");
     if (isFigletInstalled != 1) { // if return code is not 1, then it may only possibly be 0 (= figlet is installed)
         system("clear && figlet \"pacdo\"");
-        std::cout << "\n";
+        std::print("\n");
     } else {
-        std::cout << "pacdo\n";
+        std::print("pacdo\n");
     }
+    // TODO: make this whole std::cout block std::print
     std::cout
     << "version 2025.09.2904\n\n"
 
