@@ -11,6 +11,15 @@ no dependencies other than pacman, sudo and (optionally) figlet
 idk i was bored and started to hate writing 'sudo pacman -S package'
 for every package i needed while setting up a new arch install so yeah.
 
+also i actually just added a paru version, basically a copypasta
+with calls to paru instead of pacman. if you want that i do not
+think i will be creating an AUR repository but you can get it
+from the repo (extra/pardon.cpp) and compile it yourself,
+it's an extra still so give me a break ;)
+also i don't think i'll be updating that version much at all, idk.
+i really stopped using pacdo *because* of the fact that i discovered
+how good and useful paru is, so yeah, maintained for fun i guess.
+
  _           _        _ _
 (_)_ __  ___| |_ __ _| | |
 | | '_ \/ __| __/ _` | | |
