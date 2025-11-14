@@ -51,4 +51,7 @@ because your code is better than mine, probably
 // removed, since i update it every update it's not worth it
 // having to copypasta it here manually removing every '<<'
 // and '\n' and all of that, so.. yeah just get pacdo <3
+
+
+jstmax! : <jstmaxlol@disroot.org> & <maxwasmailed@proton.me>
 ```
