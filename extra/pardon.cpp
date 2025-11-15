@@ -3,7 +3,7 @@
 //////     or more literally: shortened paru syntax!
 /////      this can be useful (i swear)
 ////       license: Unlicense (pasted at the bottom of this file)
-///        version: 001
+///        version: 002
 //
 
 #include <print>
@@ -16,10 +16,10 @@ void help();
 int main(int argc, char** argv)
 {
     if (argc > 3) {
-        std::print("=> error/too_many_args: {}", argc-1);
+        std::print("=> error/too_many_args: {}\n", argc-1);
         return 1;
     } else if (argc < 2) {
-        std::print("=> error/not_enough_args: {}", argc-1);
+        std::print("=> error/not_enough_args: {}\n", argc-1);
         return 1;
     }
 
@@ -82,7 +82,12 @@ int main(int argc, char** argv)
         }
         // case show repo / contribute code
         else if (verbal == "contribute" || verbal == "repo") {
-            std::print("https://github.com/jstmaxlol/pacdo/\n");
+            std::print("=> opening github repository in default browser ..\n");
+            int ret = std::system("xdg-open \"https://github.com/jstmaxlol/pacdo/\" &");
+            if (ret != 0) {
+                std::print("=> warning/failed_to_open_default_browser\n");
+                std::print("=> github repo link: github.com/jstmaxlol/pacdo\n");
+            }
         }
     } else if (argc == 3) { // likely 'pr S', 'pr R', 'pr U', 'pr Q' or 'pr Sy'
                             // because of the third argument in argv, which is user's second argument, most likely a package name
@@ -161,7 +166,7 @@ void help() {
     }
     // TODO: make this whole std::cout block std::print
     std::cout
-    << "version 001\n\n"
+    << "version 002\n\n"
 
     << "[ help/usage screen ]\n"
     << "pr base syntax:\n"

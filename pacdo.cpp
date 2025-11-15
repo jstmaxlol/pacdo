@@ -3,7 +3,7 @@
 //////     or more literally: shortened pacman syntax!
 /////      this can be useful (i swear)
 ////       license: Unlicense (pasted at the bottom of this file)
-///        version: 2025.11.1606
+///        version: 2025.11.1607
 //
 
 #include <print>
@@ -85,7 +85,12 @@ int main(int argc, char** argv)
         }
         // case show repo / contribute code
         else if (verbal == "contribute" || verbal == "repo") {
-            std::system("xdg-open \"https://github.com/jstmaxlol/pacdo/\" &");
+            std::print("=> opening github repository in default browser ..\n");
+            int ret = std::system("xdg-open \"https://github.com/jstmaxlol/pacdo/\" &");
+            if (ret != 0) {
+                std::print("=> warning/failed_to_open_default_browser\n");
+                std::print("=> github repo link: github.com/jstmaxlol/pacdo\n");
+            }
         }
     } else if (argc == 3) { // likely 'pacdo S', 'pacdo R', 'pacdo U', 'pacdo Q' or 'pacdo Sy'
                             // because of the third argument in argv, which is user's second argument, most likely a package name
@@ -164,7 +169,7 @@ void help() {
     }
     // TODO: make this whole std::cout block std::print
     std::cout
-    << "version 2025.11.1606\n\n"
+    << "version 2025.11.1607\n\n"
 
     << "[ help/usage screen ]\n"
     << "pacdo base syntax:\n"
