@@ -53,5 +53,5 @@ because your code is better than mine, probably
 // and '\n' and all of that, so.. yeah just get pacdo <3
 
 
-jstmax! : <jstmaxlol@disroot.org> & <maxwasmailed@proton.me>
+jstmax! : <jstmaxlol@disroot.org>, <maxwasmailed@proton.me>
 ```
